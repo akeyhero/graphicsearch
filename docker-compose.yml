@@ -1,0 +1,13 @@
+version: '3.7'
+services:
+  elasticsearch:
+    image: elasticsearch:7.4.2
+    ports:
+      - '9200:9200'
+    volumes:
+      - es-data:/usr/share/elasticsearch/data
+    environment:
+      discovery.type: single-node
+volumes:
+  es-data:
+    driver: local
