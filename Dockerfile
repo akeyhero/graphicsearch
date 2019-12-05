@@ -1,6 +1,6 @@
 FROM tensorflow/tensorflow:1.15.0-py3 AS graphicsearch
 
-RUN pip install efficientnet==1.0.* keras==2.3.* Flask==1.1.*
+RUN pip install efficientnet==1.0.* keras==2.3.* Flask==1.1.* elasticsearch==7.1.*
 
 WORKDIR /app
 
