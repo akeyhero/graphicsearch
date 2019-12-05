@@ -5,7 +5,7 @@ WORKDIR /app
 COPY app/requirements.txt /app/
 RUN pip install -r requirements.txt
 
-# warming up
+# warming up; to download model parameters
 COPY app/vectorizer.py /app/
 RUN (echo 'from vectorizer import Vectorizer'; echo 'Vectorizer().prepare()') | python
 
