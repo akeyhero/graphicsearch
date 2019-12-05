@@ -11,4 +11,4 @@ RUN (echo 'from vectorizer import Vectorizer'; echo 'Vectorizer().prepare()') | 
 
 COPY app /app
 
-CMD ["python", "main.py"]
+CMD ["./main.py"]
