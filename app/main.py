@@ -1,6 +1,7 @@
 from flask import Flask, request, abort
 app = Flask(__name__)
 
+import tensorflow as tf
 from vectorizer import Vectorizer
 from elasticsearch_interface import ElasticsearchInterface
 
@@ -35,9 +36,17 @@ def prepare():
     es.create_index()
 
 def vectorize(image_file):
-    # FIXME: This should be cached because this is too slow
-    vectorizer = Vectorizer().prepare()
-    return vectorizer.vectorize(image_file)
+    global session, graph, vectorizer
+    with session.as_default():
+        with graph.as_default():
+            return vectorizer.vectorize(image_file)
+
+session = tf.Session()
+graph = tf.get_default_graph()
+vectorizer = Vectorizer()
+with session.as_default():
+    with graph.as_default():
+        vectorizer.prepare()
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0')
