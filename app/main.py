@@ -32,11 +32,6 @@ def search():
     else:
         return 'Unprocessible Entity', 422
 
-@app.before_first_request
-def prepare():
-    es = ElasticsearchInterface(INDEX_NAME)
-    es.create_index()
-
 def vectorize(image_file):
     global session, graph, vectorizer
     with session.as_default():
