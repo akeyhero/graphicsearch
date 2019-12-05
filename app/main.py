@@ -43,8 +43,8 @@ def vectorize(image_file):
         with graph.as_default():
             return vectorizer.vectorize(image_file)
 
-session = tf.Session()
-graph = tf.get_default_graph()
+session = tf.compat.v1.Session()
+graph = tf.compat.v1.get_default_graph()
 vectorizer = Vectorizer()
 with session.as_default():
     with graph.as_default():
