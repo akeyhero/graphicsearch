@@ -1,11 +1,12 @@
 #!/usr/bin/env python
 
 from flask import Flask, request, abort
-app = Flask(__name__)
-
 import tensorflow as tf
+
 from vectorizer import Vectorizer
 from elasticsearch_interface import ElasticsearchInterface
+
+app = Flask(__name__)
 
 INDEX_NAME = 'image_net_b0'
 

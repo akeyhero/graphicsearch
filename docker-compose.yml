@@ -1,9 +1,14 @@
 version: '3.7'
 services:
   app:
-    image: graphicsearch:latest
+    build:
+      context: .
+      target: development
+    image: graphicsearch-dev:latest
     ports:
       - '5000:5000'
+    volumes:
+      - ./app:/app
   elasticsearch:
     image: elasticsearch:7.5.1
     volumes:
