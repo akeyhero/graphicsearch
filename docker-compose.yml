@@ -6,8 +6,6 @@ services:
       - '5000:5000'
   elasticsearch:
     image: elasticsearch:7.5.1
-    ports:
-      - '9200:9200'
     volumes:
       - es-data:/usr/share/elasticsearch/data
     environment:
