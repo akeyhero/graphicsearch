@@ -1,17 +1,11 @@
 # The Graphicsearch
 
-The Graphicsearch privides simple image search backend.
-
-## Build the image
-
-```bash
-$ docker build -t graphicsearch .
-```
+The Graphicsearch provides simple image search backend.
 
 ## Start the app
 
 ```bash
-$ docker-compose up -d
+$ docker-compose up
 ```
 
 ## Create an index
