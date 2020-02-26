@@ -13,8 +13,7 @@ RUN (echo 'from vectorizer import Vectorizer'; echo 'Vectorizer().prepare()') | 
 # --- development ---
 FROM base as development
 
-# FIXME: `--reload` could not be used due to `ModuleNotFoundError: No module named 'tensorflow_core.keras'`
-CMD ["flask", "run", "--debugger", "--host=0.0.0.0"]
+CMD ["uwsgi", "--ini=uwsgi.ini:development"]
 
 
 # --- production ---
@@ -22,5 +21,4 @@ FROM base as production
 
 COPY app /app
 
-# FIXME: This is not good for production environment
-CMD ["./app.py"]
+CMD ["uwsgi", "--ini=uwsgi.ini"]

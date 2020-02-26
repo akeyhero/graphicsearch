@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 from flask import Flask, request, abort
+import uwsgidecorators
 import tensorflow as tf
 
 from vectorizer import Vectorizer
@@ -39,6 +40,7 @@ def vectorize(image_file):
         with graph.as_default():
             return vectorizer.vectorize(image_file)
 
+@uwsgidecorators.postfork
 def prepare():
     global session, graph, vectorizer, elasticsearch_interface
     session = tf.compat.v1.Session()
@@ -48,7 +50,3 @@ def prepare():
         with graph.as_default():
             vectorizer.prepare()
     elasticsearch_interface = ElasticsearchInterface(INDEX_NAME)
-
-if __name__ == "__main__":
-    prepare()
-    app.run(host='0.0.0.0')
