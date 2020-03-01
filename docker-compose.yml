@@ -3,10 +3,10 @@ services:
   app:
     build:
       context: .
-      target: development
-    image: graphicsearch-dev:latest
+    image: graphicsearch:latest
+    command: ["uvicorn", "app:app", "--host=0", "--reload"]
     ports:
-      - '${PORT:-5000}:80'
+      - '127.0.0.1:${PORT:-8000}:8000'
     volumes:
       - ./app:/app
   elasticsearch:

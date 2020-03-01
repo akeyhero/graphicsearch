@@ -1,0 +1,6 @@
+efficientnet==1.0.*
+keras==2.3.*
+fastapi==0.50.*
+uvicorn==0.11.*
+python-multipart==0.0.*
+elasticsearch==7.1.*

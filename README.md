@@ -8,6 +8,10 @@ The Graphicsearch provides simple image search backend.
 $ docker-compose up
 ```
 
+## API Docs
+
+Visit: [localhost:8000/redoc](http://localhost:8000/redoc)
+
 ## Create an index
 
 You may need to create an index for the first time to access to the app.
@@ -19,11 +23,11 @@ $ docker-compose exec app bash -c "(echo 'from elasticsearch_interface import El
 ## Index an image
 
 ```bash
-$ curl -XPOST -F file=@/path/to/image.jpg localhost:5000
+$ curl -XPOST -F file=@/path/to/image.jpg localhost:8000/index
 ```
 
 ## Search images
 
 ```bash
-$ curl -XPOST -F file=@/path/to/image.jpg localhost:5000/search
+$ curl -XPOST -F file=@/path/to/image.jpg localhost:8000/search
 ```

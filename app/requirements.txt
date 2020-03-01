@@ -1,5 +1,0 @@
-efficientnet==1.0.*
-keras==2.3.*
-Flask==1.1.*
-uwsgi==2.0.*
-elasticsearch==7.1.*
