@@ -1,0 +1,29 @@
+version: '3.7'
+services:
+  app:
+    build:
+      context: .
+    image: graphicsearch:latest
+    volumes:
+      - ./app:/app
+      - socket:/run/uvicorn
+  nginx:
+    build:
+      context: nginx
+    image: graphicsearch-nginx:latest
+    ports:
+      - '${PORT:-8000}:80'
+    volumes:
+      - ./app:/app
+      - socket:/run/uvicorn
+  elasticsearch:
+    image: elasticsearch:7.5.1
+    volumes:
+      - es-data:/usr/share/elasticsearch/data
+    environment:
+      discovery.type: single-node
+volumes:
+  socket:
+    driver: local
+  es-data:
+    driver: local

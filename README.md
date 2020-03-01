@@ -8,6 +8,12 @@ The Graphicsearch provides simple image search backend.
 $ docker-compose up
 ```
 
+For a production use, you may be happy to use `docker-compose_production.yml` rather.
+
+```bash
+$ docker-compose -f docker-compose_production.yml up
+```
+
 ## API Docs
 
 Visit: [localhost:8000/redoc](http://localhost:8000/redoc)
