@@ -4,7 +4,7 @@ services:
     build:
       context: .
     image: graphicsearch:latest
-    command: ["uvicorn", "app:app", "--host=0", "--reload"]
+    command: ["uvicorn", "app:app", "--host=0", "--log-level=trace", "--use-colors", "--reload"]
     ports:
       - '127.0.0.1:${PORT:-8000}:8000'
     volumes:

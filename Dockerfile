@@ -11,4 +11,4 @@ RUN (echo 'from vectorizer import Vectorizer'; echo 'Vectorizer().prepare()') | 
 
 COPY app /app
 
-CMD ["uvicorn", "app:app", "--uds=/run/uvicorn/app.sock"]
+CMD ["uvicorn", "app:app", "--uds=/run/uvicorn/app.sock", "--use-colors"]
